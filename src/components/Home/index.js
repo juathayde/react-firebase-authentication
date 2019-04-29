@@ -6,6 +6,7 @@ import MusicPlayer from '../MusicPlayer/index.js'
 
 import { withAuthorization, withEmailVerification } from '../Session';
 import Messages from '../Messages';
+import Songs from '../Songs';
 
 const HomePage = () => (
   <Container id="intro">
@@ -14,7 +15,9 @@ const HomePage = () => (
       <Button color="warning">Stream</Button>
     <h1>Your Songs</h1>
     <p>Upload new songs to share your music listening experience with others.</p>
-    <Messages />
+      <Songs />
+    <h1>Your Messages</h1>
+      <Messages />
   </Container>
 );
 
