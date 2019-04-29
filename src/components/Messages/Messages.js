@@ -104,7 +104,7 @@ class Messages extends Component {
 
             {messages && (
               <MessageList
-                authUser={authUser}
+                authUser={authUser.username}
                 messages={messages}
                 onEditMessage={this.onEditMessage}
                 onRemoveMessage={this.onRemoveMessage}

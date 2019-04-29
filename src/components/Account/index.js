@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { compose } from 'recompose';
+import { Button } from 'reactstrap';
 
 import {
   AuthUserContext,
@@ -33,7 +34,7 @@ const AccountPage = () => (
   <AuthUserContext.Consumer>
     {authUser => (
       <div>
-        <h1>Account: {authUser.email}</h1>
+        <h1>Account: {authUser.username}</h1>
         <PasswordForgetForm />
         <PasswordChangeForm />
         <LoginManagement authUser={authUser} />
@@ -189,13 +190,13 @@ class DefaultLoginToggle extends Component {
       passwordOne !== passwordTwo || passwordOne === '';
 
     return isEnabled ? (
-      <button
+      <Button
         type="button"
         onClick={() => onUnlink(signInMethod.id)}
         disabled={onlyOneLeft}
       >
         Deactivate {signInMethod.id}
-      </button>
+      </Button>
     ) : (
       <form onSubmit={this.onSubmit}>
         <input
@@ -213,9 +214,9 @@ class DefaultLoginToggle extends Component {
           placeholder="Confirm New Password"
         />
 
-        <button disabled={isInvalid} type="submit">
+        <Button disabled={isInvalid} type="submit">
           Link {signInMethod.id}
-        </button>
+        </Button>
       </form>
     );
   }

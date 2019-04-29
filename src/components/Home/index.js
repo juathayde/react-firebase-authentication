@@ -1,16 +1,21 @@
 import React from 'react';
 import { compose } from 'recompose';
+import '../App/App.css';
+import { Button, Container } from 'reactstrap';
+import MusicPlayer from '../MusicPlayer/index.js'
 
 import { withAuthorization, withEmailVerification } from '../Session';
 import Messages from '../Messages';
 
 const HomePage = () => (
-  <div>
-    <h1>Home Page</h1>
-    <p>The Home Page is accessible by every signed in user.</p>
-
+  <Container id="intro">
+    <h1>Your Music Player</h1>
+      <MusicPlayer />
+      <Button color="warning">Stream</Button>
+    <h1>Your Songs</h1>
+    <p>Upload new songs to share your music listening experience with others.</p>
     <Messages />
-  </div>
+  </Container>
 );
 
 const condition = authUser => !!authUser;

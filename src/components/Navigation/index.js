@@ -43,16 +43,16 @@ const Navigation = () => (
 
 const NavigationAuth = ({ authUser }) => (
   <Navbar color="dark" dark expand="md">
-    <NavbarBrand href="/">reverb</NavbarBrand>
+    <NavbarBrand href={ROUTES.LANDING}>reverb</NavbarBrand>
     <Nav className="ml-auto" navbar>
-      <NavItem>
-        <NavLink href={ROUTES.LANDING}>the app</NavLink>
-      </NavItem>
       <NavItem>
         <NavLink href={ROUTES.HOME}>home</NavLink>
       </NavItem>
       <NavItem>
         <NavLink href={ROUTES.ACCOUNT}>account</NavLink>
+      </NavItem>
+      <NavItem>
+        <NavLink href={ROUTES.STREAMERS}>streamers</NavLink>
       </NavItem>
       {!!authUser.roles[ROLES.ADMIN] && (
       <NavItem>
@@ -68,11 +68,8 @@ const NavigationAuth = ({ authUser }) => (
 
 const NavigationNonAuth = () => (
   <Navbar color="dark" dark expand="md">
-    <NavbarBrand href="/">reverb</NavbarBrand>
+    <NavbarBrand href={ROUTES.LANDING}>reverb</NavbarBrand>
     <Nav className="ml-auto" navbar>
-      <NavItem>
-        <NavLink href={ROUTES.LANDING}>the app</NavLink>
-      </NavItem>
       <NavItem>
         <NavLink href={ROUTES.HOME}>home</NavLink>
       </NavItem>
