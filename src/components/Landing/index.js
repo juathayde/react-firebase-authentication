@@ -36,7 +36,7 @@ const LandingPage = () => (
       </Col>
     </Row>
     <p style={row2Style}>Now for free</p>
-    <Button href={ROUTES.HOME} style={buttonStyle} color="warning">Sign Up</Button>
+    <Button href={ROUTES.SIGN_UP} style={buttonStyle} color="warning">Sign Up</Button>
   </Container>
 );
 
