@@ -7,9 +7,11 @@ import { PasswordForgetLink } from '../PasswordForget';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 
+import { Button, Form, FormGroup, Input } from 'reactstrap';
+
 const SignInPage = () => (
   <div>
-    <h1>SignIn</h1>
+    <h1>Sign In</h1>
     <SignInForm />
     <SignInGoogle />
     <SignInFacebook />
@@ -68,27 +70,28 @@ class SignInFormBase extends Component {
     const isInvalid = password === '' || email === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
-          name="email"
-          value={email}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Email Address"
-        />
-        <input
-          name="password"
-          value={password}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Password"
-        />
-        <button disabled={isInvalid} type="submit">
-          Sign In
-        </button>
-
-        {error && <p>{error.message}</p>}
-      </form>
+      <Form inline>
+          <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+            <Input
+              type="email"
+              name="email"
+              value={email}
+              onChange={this.onChange}
+              placeholder="Email Address"
+            />
+          </FormGroup>
+          <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+            <Input
+              type="password"
+              name="password"
+              value={password}
+              onChange={this.onChange}
+              placeholder="Password"
+            />
+          </FormGroup>
+          <Button disabled={isInvalid} type="submit">Sign In</Button>
+          {error && <p>{error.message}</p>}
+        </Form>
     );
   }
 }
@@ -131,7 +134,7 @@ class SignInGoogleBase extends Component {
 
     return (
       <form onSubmit={this.onSubmit}>
-        <button type="submit">Sign In with Google</button>
+        <Button type="submit">Sign In with Google</Button>
 
         {error && <p>{error.message}</p>}
       </form>
@@ -177,7 +180,7 @@ class SignInFacebookBase extends Component {
 
     return (
       <form onSubmit={this.onSubmit}>
-        <button type="submit">Sign In with Facebook</button>
+        <Button type="submit">Sign In with Facebook</Button>
 
         {error && <p>{error.message}</p>}
       </form>
@@ -223,7 +226,7 @@ class SignInTwitterBase extends Component {
 
     return (
       <form onSubmit={this.onSubmit}>
-        <button type="submit">Sign In with Twitter</button>
+        <Button type="submit">Sign In with Twitter</Button>
 
         {error && <p>{error.message}</p>}
       </form>

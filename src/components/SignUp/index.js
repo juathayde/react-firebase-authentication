@@ -6,6 +6,8 @@ import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 import * as ROLES from '../../constants/roles';
 
+import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
+
 const SignUpPage = () => (
   <div>
     <h1>SignUp</h1>
