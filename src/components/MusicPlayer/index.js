@@ -9,7 +9,7 @@ class MusicPlayer extends Component {
       play: false,
       pause: true,
     }
-    this.url = "http://streaming.tdiradio.com:8000/house.mp3";
+    this.url = "https://firebasestorage.googleapis.com/v0/b/reverb-9081f.appspot.com/o/Skrillex%20%26%20Poo%20Bear%20-%20Would%20You%20Ever.mp3?alt=media&token=1de62308-3d33-44cc-95aa-443ff5953d2a";
     this.audio = new Audio(this.url);
   }
 
@@ -23,14 +23,18 @@ class MusicPlayer extends Component {
     this.audio.pause();
   }
 
+  // setURL = (url) => {
+  //   this.setState({ url: url })
+  // }
+
   render() {
 
   return (
       <div className="MusicPlayer">
       <Container>
         <Row>
-          <button class="play-button" onClick={this.play}></button>
-          <button class='pause-button' onClick={this.pause}>f</button>
+          <button className="play-button" onClick={this.play}></button>
+          <button className='pause-button' onClick={this.pause}>f</button>
         </Row>
       </Container>
       </div>

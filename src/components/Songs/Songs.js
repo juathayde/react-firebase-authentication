@@ -25,9 +25,6 @@ class Songs extends Component {
     this.setState({ loading: true});
   }
 
-  // onListenForSongs = () => {
-  //   this.setState({ loading: true });
-  //
   //   this.props.firebase
   //     .songs()
   //     .orderByChild('createdAt')
