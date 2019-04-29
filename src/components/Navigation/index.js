@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import { AuthUserContext } from '../Session';
 import SignOutButton from '../SignOut';
@@ -47,17 +46,17 @@ const NavigationAuth = ({ authUser }) => (
     <NavbarBrand href="/">reverb</NavbarBrand>
     <Nav className="ml-auto" navbar>
       <NavItem>
-        <Link to={ROUTES.LANDING}>Landing</Link>
+        <NavLink href={ROUTES.LANDING}>the app</NavLink>
       </NavItem>
       <NavItem>
-        <Link to={ROUTES.HOME}>Home</Link>
+        <NavLink href={ROUTES.HOME}>home</NavLink>
       </NavItem>
       <NavItem>
-        <Link to={ROUTES.ACCOUNT}>Account</Link>
+        <NavLink href={ROUTES.ACCOUNT}>account</NavLink>
       </NavItem>
       {!!authUser.roles[ROLES.ADMIN] && (
       <NavItem>
-        <Link to={ROUTES.ADMIN}>Admin</Link>
+        <NavLink href={ROUTES.ADMIN}>Admin</NavLink>
       </NavItem>
     )}
       <NavItem>

@@ -2,10 +2,13 @@ import React from 'react';
 
 import { withFirebase } from '../Firebase';
 
+import { NavLink } from 'reactstrap';
+
+
 const SignOutButton = ({ firebase }) => (
-  <button type="button" onClick={firebase.doSignOut}>
-    Sign Out
-  </button>
+  <NavLink href="/" onClick={firebase.doSignOut}>
+    sign out
+  </NavLink>
 );
 
 export default withFirebase(SignOutButton);
