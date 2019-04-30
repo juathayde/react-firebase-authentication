@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './MusicPlayer.css';
 import { Progress, Container, Row } from 'reactstrap';
 
 class MusicPlayer extends Component {
@@ -8,8 +7,9 @@ class MusicPlayer extends Component {
     this.state = {
       play: false,
       pause: true,
+      currentSong: 'https://firebasestorage.googleapis.com/v0/b/reverb-9081f.appspot.com/o/Skrillex%20%26%20Poo%20Bear%20-%20Would%20You%20Ever.mp3?alt=media&token=1de62308-3d33-44cc-95aa-443ff5953d2a',
     }
-    this.url = "https://firebasestorage.googleapis.com/v0/b/reverb-9081f.appspot.com/o/Skrillex%20%26%20Poo%20Bear%20-%20Would%20You%20Ever.mp3?alt=media&token=1de62308-3d33-44cc-95aa-443ff5953d2a";
+    this.url = this.state.currentSong;
     this.audio = new Audio(this.url);
   }
 
@@ -23,6 +23,7 @@ class MusicPlayer extends Component {
     this.audio.pause();
   }
 
+
   // setURL = (url) => {
   //   this.setState({ url: url })
   // }
@@ -30,15 +31,9 @@ class MusicPlayer extends Component {
   render() {
 
   return (
-      <div className="MusicPlayer">
-      <Container>
-        <Row>
-          <button className="play-button" onClick={this.play}></button>
-          <button className='pause-button' onClick={this.pause}>f</button>
-        </Row>
-      </Container>
-      </div>
-
+      <audio controls>
+        <source src='https://firebasestorage.googleapis.com/v0/b/reverb-9081f.appspot.com/o/Skrillex%20%26%20Poo%20Bear%20-%20Would%20You%20Ever.mp3?alt=media&token=1de62308-3d33-44cc-95aa-443ff5953d2a' />
+      </audio>
     );
   }
 }
