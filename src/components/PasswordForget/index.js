@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Button, Container, Col, Input, Form, Row } from 'reactstrap';
 
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
@@ -48,20 +49,27 @@ class PasswordForgetFormBase extends Component {
     const isInvalid = email === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
-          name="email"
-          value={this.state.email}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Email Address"
-        />
-        <button disabled={isInvalid} type="submit">
-          Reset My Password
-        </button>
-
-        {error && <p>{error.message}</p>}
-      </form>
+      <Row>
+        <Col>
+        <Form onSubmit={this.onSubmit}>
+          <Input
+            name="email"
+            value={this.state.email}
+            onChange={this.onChange}
+            type="text"
+            placeholder="Email Address"
+          />
+          </Form>
+          </Col>
+          <Col>
+            <Form>
+            <Button disabled={isInvalid} type="submit" color="warning">
+              Reset My Password
+            </Button>
+            {error && <p>{error.message}</p>}
+            </Form>
+            </Col>
+        </Row>
     );
   }
 }
