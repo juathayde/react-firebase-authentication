@@ -9,10 +9,7 @@ import * as ROLES from '../../constants/roles';
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
 
 const SignUpPage = () => (
-  <div>
-    <h1>SignUp</h1>
     <SignUpForm />
-  </div>
 );
 
 const INITIAL_STATE = {
@@ -102,50 +99,61 @@ class SignUpFormBase extends Component {
       username === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
+
+      <Container>
+      <h1>Sing Up</h1>
+      <FormGroup>
+      <Form onSubmit={this.onSubmit}>
+        <Input
           name="username"
           value={username}
           onChange={this.onChange}
           type="text"
           placeholder="Full Name"
         />
-        <input
+      </Form>
+      <Form>
+        <Input
           name="email"
           value={email}
           onChange={this.onChange}
           type="text"
           placeholder="Email Address"
         />
-        <input
+        </Form>
+        </FormGroup>
+        <Form>
+        <Input
           name="passwordOne"
           value={passwordOne}
           onChange={this.onChange}
           type="password"
           placeholder="Password"
         />
-        <input
+        <Input
           name="passwordTwo"
           value={passwordTwo}
           onChange={this.onChange}
           type="password"
           placeholder="Confirm Password"
         />
-        <label>
+        <Label>
           Admin:
-          <input
+          <Input
             name="isAdmin"
             type="checkbox"
             checked={isAdmin}
             onChange={this.onChangeCheckbox}
           />
-        </label>
-        <button disabled={isInvalid} type="submit">
+        </Label>
+        <Button disabled={isInvalid} type="submit" color="warning">
           Sign Up
-        </button>
+        </Button>
 
         {error && <p>{error.message}</p>}
-      </form>
+      </Form>
+
+      </Container>
     );
   }
 }

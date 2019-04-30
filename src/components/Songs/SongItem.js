@@ -12,7 +12,7 @@ class SongItem extends Component {
     return (
       <li> (
         <span>
-            <strong>{song.userId}</strong> {song.file}
+            <strong>{song.userId}</strong><p>{song.fileName}</p>
           </span>
         )}
       </li>

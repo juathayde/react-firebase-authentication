@@ -1,17 +1,16 @@
 import React from 'react';
-
 import SongItem from './SongItem';
 
 const SongList = ({
   authUser,
-  songs,
+  songs
 }) => (
   <ul>
     {songs.map(song => (
       <SongItem
         authUser={authUser}
         key={song.uid}
-        song={song}
+        name={song.fileName}
       />
     ))}
   </ul>

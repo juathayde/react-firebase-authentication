@@ -9,22 +9,20 @@ class Songs extends Component {
     super(props);
 
     this.state = {
-      file: '',
+      currentSong: null,
       loading: false,
       songs: [],
-      limit: 5,
     };
   }
 
-  componentDidMount() {
-    this.uploadFile();
-  }
+  // componentDidMount() {
+  //   //this.uploadFile();
+  // }
 
-  uploadFile() {
-    console.log("this function was called")
-    this.setState({ loading: true});
-  }
-
+  // uploadFile() {
+  //   console.log("this function was called")
+  //   this.setState({ loading: true});
+  // }
   //   this.props.firebase
   //     .songs()
   //     .orderByChild('createdAt')
@@ -79,6 +77,7 @@ class Songs extends Component {
     const { file, songs, loading} = this.state;
 
     return (
+
       <AuthUserContext.Consumer>
         {authUser => (
           <div>
