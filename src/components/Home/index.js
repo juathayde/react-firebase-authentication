@@ -2,48 +2,20 @@ import React, {Component} from 'react';
 import { compose } from 'recompose';
 import '../App/App.css';
 import { Button, Container, Row } from 'reactstrap';
-import MusicPlayer from '../MusicPlayer/index.js'
-import MusicPlayer2 from '../MusicPlayer/index.js'
+//import MusicPlayer from '../MusicPlayer/index.js'
+//import MusicPlayer2 from '../MusicPlayer/index.js'
 
 import { withAuthorization, withEmailVerification } from '../Session';
 import Messages from '../Messages';
-import Songs from '../Songs';
+//import Songs from '../Songs';
 
-// var currentSong = ''
-// const musicLocationArray = [['Would You Ever', 'https://firebasestorage.googleapis.com/v0/b/reverb-9081f.appspot.com/o/Skrillex%20%26%20Poo%20Bear%20-%20Would%20You%20Ever.mp3?alt=media&token=1de62308-3d33-44cc-95aa-443ff5953d2a'],
-// ['Bohemian Rhapsody', 'https://firebasestorage.googleapis.com/v0/b/reverb-9081f.appspot.com/o/rizkyrilos%20-%20Queen%20-%20Bohemian%20Rhapsody.mp3?alt=media&token=56ed2628-668d-4546-a657-692f4d51899e']];
-//
-// function handleSong(songName) {
-//   var i;
-//   for(i=0; i<musicLocationArray.length; ++i){
-//     if(musicLocationArray[i][0]===songName){
-//       currentSong = musicLocationArray[i][1];
-//       //MusicPlayer.currentSong = currentSong;
-//     }
-//   }
-// }
-//
-// const HomePage = () => (
-//   <Container id="intro">
-//     <h1>Your Music Player</h1>
-//     <Row>
-//         <MusicPlayer />
-//         <Button color="warning">Stream Now</Button>
-//     </Row>
-//     <h1>Your Songs</h1>
-//     <p>Upload new songs to share your music listening experience with others.</p>
-//     <div onClick="handleSong('Bohemian Rapsody')">Bohemian Rhapsody</div>
-//     <div onClick="handleSong('Would You Ever')">Would You Ever</div>
-//       <Songs />
-//   </Container>
-// );
-//
-// const condition = authUser => !!authUser;
-//
-// export default compose(
-//   withEmailVerification,
-//   withAuthorization(condition),
-// )(HomePage);
+function changeSong(song) {
+  document.getElementById("music-player").pause();
+  document.getElementById("music-player").setAttribute('src', song);
+  document.getElementById("music-player").load();
+  document.getElementById("music-player").play();
+}
+
 class HomePage extends Component {
   constructor(props) {
     super(props);
@@ -61,83 +33,54 @@ class HomePage extends Component {
       ],
       currentTime: null
     };
-    //this.handleSong = this.handleSong.bind(this);
-    this.handleSong1 = this.handleSong1.bind(this);
-    this.handleSong2 = this.handleSong2.bind(this);
-  }
-  // handleSong(songName) {
-  //     var i;
-  //     for(i=0; i<this.state.musicLocationArray.length; ++i){
-  //       if(this.state.musicLocationArray[i].songName===songName){
-  //         this.setState ({
-  //         currentSong: this.state.musicLocationArray[i].songLocation
-  //         })
-  //       }
-  //     }
-  //   }
-  handleSong1() {
-      this.setState ({
-      currentSong: 'https://firebasestorage.googleapis.com/v0/b/reverb-9081f.appspot.com/o/rizkyrilos%20-%20Queen%20-%20Bohemian%20Rhapsody.mp3?alt=media&token=56ed2628-668d-4546-a657-692f4d51899e'
-      })
-      console.log(this.state.currentSong);
-      this.forceUpdate();
+    // this.handleSong1 = this.handleSong1.bind(this);
+    // this.handleSong2 = this.handleSong2.bind(this);
   }
 
-  handleSong2() {
-      this.setState ({
-      currentSong: 'https://firebasestorage.googleapis.com/v0/b/reverb-9081f.appspot.com/o/Skrillex%20%26%20Poo%20Bear%20-%20Would%20You%20Ever.mp3?alt=media&token=1de62308-3d33-44cc-95aa-443ff5953d2a'
-      })
-      console.log(this.state.currentSong);
-      this.forceUpdate();
-  }
-  onChange(newSong) {
-   this.setState({ currentSong: newSong });
-}
+
+ // handleSong1() {
+ //      this.setState ({
+ //      currentSong: 'https://firebasestorage.googleapis.com/v0/b/reverb-9081f.appspot.com/o/rizkyrilos%20-%20Queen%20-%20Bohemian%20Rhapsody.mp3?alt=media&token=56ed2628-668d-4546-a657-692f4d51899e'
+ //    }, function(){
+ //        this.refs.audio.pause();
+ //        this.refs.audio.load();
+ //    })
+ //      console.log(this.state.currentSong);
+ //  }
+ //
+ //  handleSong2() {
+ //      this.setState ({
+ //      currentSong: 'https://firebasestorage.googleapis.com/v0/b/reverb-9081f.appspot.com/o/Skrillex%20%26%20Poo%20Bear%20-%20Would%20You%20Ever.mp3?alt=media&token=1de62308-3d33-44cc-95aa-443ff5953d2a'
+ //    }, function(){
+ //        this.refs.audio.pause();
+ //        this.refs.audio.load();
+ //    }
+ //  )
+ //
+ //      console.log(this.state.currentSong);
+ //  }
+
   render() {
-    if (this.state.currentSong ==  'https://firebasestorage.googleapis.com/v0/b/reverb-9081f.appspot.com/o/rizkyrilos%20-%20Queen%20-%20Bohemian%20Rhapsody.mp3?alt=media&token=56ed2628-668d-4546-a657-692f4d51899e') {
-      return(
+    return(
+
         <Container id="intro">
           <h1>Your Music Player</h1>
           <Row>
-              <MusicPlayer
-              currentSong={this.state.currentSong}
-              onSongChange={this.onChange}
-               />
+              <audio id="music-player" controls>
+                <source src="https://firebasestorage.googleapis.com/v0/b/reverb-9081f.appspot.com/o/rizkyrilos%20-%20Queen%20-%20Bohemian%20Rhapsody.mp3?alt=media&token=56ed2628-668d-4546-a657-692f4d51899e"/>
+              </audio>
               <Button color="warning">Stream Now</Button>
           </Row>
-          <h1>Your Songs</h1>
-          <p>Upload new songs to share your music listening experience with others.</p>
-          <Button onClick={() => {this.handleSong1()}}>Bohemian Rhapsody</Button>
+          <br />
+          <br />
+          <Button onClick="changeSong('https://firebasestorage.googleapis.com/v0/b/reverb-9081f.appspot.com/o/rizkyrilos%20-%20Queen%20-%20Bohemian%20Rhapsody.mp3?alt=media&token=56ed2628-668d-4546-a657-692f4d51899e')">Bohemian Rhapsody</Button>
           <div />
-          <Button onClick={() => {this.handleSong2()}}>Would You Ever</Button>
-              <Songs />
+          <Button onClick="changeSong('https://firebasestorage.googleapis.com/v0/b/reverb-9081f.appspot.com/o/Skrillex%20%26%20Poo%20Bear%20-%20Would%20You%20Ever.mp3?alt=media&token=1de62308-3d33-44cc-95aa-443ff5953d2a')">Would You Ever</Button>
         </Container>
-    )
+      )
     }
-    if (this.state.currentSong ==  'https://firebasestorage.googleapis.com/v0/b/reverb-9081f.appspot.com/o/Skrillex%20%26%20Poo%20Bear%20-%20Would%20You%20Ever.mp3?alt=media&token=1de62308-3d33-44cc-95aa-443ff5953d2a') {
-      return(
-        <Container id="intro">
-          <h1>Your Music Player</h1>
-          <Row>
-              <MusicPlayer
-              currentSong={this.state.currentSong}
-              onSongChange={this.onChange}
-               />
-              <Button color="warning">Stream Now</Button>
-          </Row>
-          <h1>Your Songs</h1>
-          <p>Upload new songs to share your music listening experience with others.</p>
-          // <Button onClick={() => {this.handleSong1()}}>Bohemian Rhapsody</Button>
-          // <div />
-          // <Button onClick={() => {this.handleSong2()}}>Would You Ever</Button>
-              <Songs />
-        </Container>
-    )
-    }
-  }
-  }
 
-
+  }
 
 const condition = authUser => !!authUser;
 
