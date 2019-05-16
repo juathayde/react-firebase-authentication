@@ -3,12 +3,13 @@ import 'firebase/auth';
 import 'firebase/database';
 
 const config = {
-  apiKey: process.env.REACT_APP_API_KEY,
-  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-  databaseURL: process.env.REACT_APP_DATABASE_URL,
-  projectId: process.env.REACT_APP_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  apiKey: "AIzaSyDtCUr1oiTGq8cQY8anEbOOduBNrRUbGyM",
+  authDomain: "reverb-9081f.firebaseapp.com",
+  databaseURL: "https://reverb-9081f.firebaseio.com",
+  projectId: "reverb-9081f",
+  storageBucket: "reverb-9081f.appspot.com",
+  messagingSenderId: "903127371518",
+  appId: "1:903127371518:web:1e65785061b0e9d7"
 };
 
 class Firebase {
